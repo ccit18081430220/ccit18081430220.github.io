@@ -386,6 +386,102 @@
 
 
   
+    <article id="post-navicat远程连接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/22/navicat%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/">navicat远程连接</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/12/22/navicat%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/" class="archive-article-date">
+  	<time datetime="2020-12-22T08:21:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<p>进入MySql命令行界面输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">select user, host from user;</span><br></pre></td></tr></table></figure>
+
+<p>你会发现：</p>
+<p><img src="../picture/20190325175249334.png" alt="img"></p>
+<p>然后修改root对应的host：</p>
+<p>执行 update user set host = ‘%’ where user = ‘root’; </p>
+<p>再次执行select user,host from user;</p>
+<p><img src="../picture/20190325175504404.png" alt="img"></p>
+<p>修改成功。</p>
+<p>(3).权限修改</p>
+<p>这最重要的一步，目的就是赋予所有IP访问数据库的权限。</p>
+<p>GRANT ALL PRIVILEGES ON <em>.</em> TO 用户名@’%’ IDENTIFIED BY ‘你的密码’ WITH GRANT OPTION;（错的）</p>
+<p>这样做是不可以的。</p>
+<p> 应该为：</p>
+<p>ALTER USER ‘aaa(用户名)‘@’%’ IDENTIFIED WITH mysql_native_password BY ‘bbb(密码)’;（对的）</p>
+<p>%代表所有IP，这句话代表允许所有IP以用户名：aaa和密码：bbb的方式访问数据库。当然要写你自己的用户名和密码了。</p>
+<p>好了，这样就完成了。下面进行Navicat连接就可以了。</p>
+<p><img src="../picture/2019032518101643.png" alt="img"></p>
+<p><a href="https://blog.csdn.net/csdnxufei/article/details/88800559" target="_blank" rel="noopener">https://blog.csdn.net/csdnxufei/article/details/88800559</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">-技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/22/navicat%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-控制任意LED小灯" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -986,83 +1082,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/31/%E5%B0%86%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-yilia优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/27/yilia%E4%BC%98%E5%8C%96/">yilia优化不时更新</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/05/27/yilia%E4%BC%98%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-05-27T09:52:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>因为域名备份之后，腾讯云又打来电话没办法在搞一下</p>
-        
-          <a class="article-more-a" href="/2020/05/27/yilia%E4%BC%98%E5%8C%96/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">-分享</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/27/yilia%E4%BC%98%E5%8C%96/">展开全文 >></a>
         </p>
       
 
